@@ -26,8 +26,8 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 // Go to https://hardhat.org/config/ to learn more
 
 const config: HardhatUserConfig = {
-  defaultNetwork: "hardhat",
-  solidity: "0.8.4",
+  defaultNetwork: "localhost",
+  solidity: "0.8.7",
   networks: {
     hardhat: {
       forking: {
@@ -35,6 +35,9 @@ const config: HardhatUserConfig = {
         blockNumber: 13399589,
       },
       gasPrice: parseInt(utils.parseUnits("200", "gwei").toString()),
+    },
+    localhost: {
+      url: "http://127.0.0.1:8545/",
     },
     ropsten: {
       url: process.env.ROPSTEN_URL || "",
